@@ -1,0 +1,9 @@
+<h3>
+ <%= @friend.first_name %>
+ <%= @friend.last_name %>
+</h3>
+ <li>Email:<b><%= @friend.email %></b></li>
+ <li>Phone:<b><%= @friend.phone %></b></li>
+ <li>Twitter:<b><%= @friend.twitter %></b></li>
+ <%= link_to 'Edit',edit_friend_path(@friend), class:"btn btn-dark" %> 
+ <%= link_to 'Back',friends_path, class:"btn btn-dark" %>
