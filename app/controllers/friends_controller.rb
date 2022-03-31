@@ -4,7 +4,24 @@ class FriendsController < ApplicationController
 
   def index
     @friends = current_user.friends
+   
+    # To Export files
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @friends.to_csv }
+    end
   end
+
+      # import File
+
+  def import
+        if Friend.import(params[:file])
+     redirect_to root_path, notice: "File imported" 
+    else
+     redirect_to root_path
+    end 
+  end 
 
   def show
     @friend = Friend.find(params[:id])

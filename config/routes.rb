@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   root 'friends#index'
   get 'home/about'
   resources :home
-  resources :friends
+  resources :friends do
+    collection { post :import }
+  end
 end

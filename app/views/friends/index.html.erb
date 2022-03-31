@@ -1,5 +1,9 @@
 <h1>Friends</h1>
-
+<div>
+Download file:
+<%= link_to CSV, friends_path(format:'csv')%>
+</div><br>
+<div class="table-responsive">
 <table class="table table-striped table-bordered table-hover">
     <thead class="table-dark">
         <tr>
@@ -31,6 +35,13 @@
       <% end %>
     </tbody>
 </table>
+</div>
 <% if user_signed_in? %>
 <%= link_to 'Add New Friend', new_friend_path, class:"btn btn-secondary" %>
+<% end %>
+<h4>Import CSV Files only</h4>
+
+<%= form_tag import_friends_path, multipart: true do %>
+  <%= file_field_tag :file, accept: 'text/csv', required: true%>
+  <%= submit_tag "Import"%>
 <% end %>
