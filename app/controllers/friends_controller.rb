@@ -13,14 +13,14 @@ class FriendsController < ApplicationController
     end
   end
 
-      # import File
+   # import File
 
   def import
-        if Friend.import(params[:file])
-     redirect_to root_path, notice: "File imported" 
-    else
-     redirect_to root_path
-    end 
+    if Friend.import(params[:file])
+      redirect_to root_path, notice: "File imported" 
+     else
+       redirect_to root_path
+    end         
   end 
 
   def show
